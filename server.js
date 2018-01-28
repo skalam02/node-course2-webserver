@@ -8,9 +8,9 @@ var app = express()
 hbs.registerPartials('./views/partials')
 app.set('view engine', 'hbs')
 
-app.use( (req,res,next) => {
-  res.send('Under Construction')
-})
+// app.use( (req,res,next) => {
+//   res.send('Under Construction')
+// })
 
 app.use(express.static(__dirname +'/public'))
 hbs.registerHelper('getCurrentYear', () => {
@@ -43,6 +43,12 @@ app.get('/', (req,res) => {
 app.get('/about', (req,res) => {
   res.render('about', {
     pageTitle: "About",
+  })
+})
+
+app.get('/projects', (req,res) => {
+  res.render('projects', {
+    pageTitle: "Projects"
   })
 })
 
